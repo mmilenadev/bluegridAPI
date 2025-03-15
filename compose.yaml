@@ -1,0 +1,33 @@
+services:
+  ###> doctrine/doctrine-bundle ###
+  nginx:
+    container_name: bluegrid_nginx
+    image: nginx:1.21.6-alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/app/
+      - ./var/log/nginx/:/var/log/nginx
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/site.conf
+
+  php:
+    container_name: bluegrid_php
+    build: ./docker/php
+    restart: always
+    volumes:
+      - ./:/app/
+      - ./docker/php/conf.d/custom.ini:/usr/local/etc/php/conf.d/custom.ini
+
+  database:
+    container_name: bluegrid_postgres
+    image: postgres:17-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - POSTGRES_USER=bluegrid
+      - POSTGRES_PASSWORD=bluegrid
+      - POSTGRES_DB=bluegrid
+    ports:
+      - "5432:5432"
