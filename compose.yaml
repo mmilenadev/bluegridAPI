@@ -30,4 +30,4 @@ services:
       - POSTGRES_PASSWORD=bluegrid
       - POSTGRES_DB=bluegrid
     ports:
-      - "5433:5432"
+      - "5432:5432"
