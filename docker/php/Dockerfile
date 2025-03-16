@@ -30,7 +30,8 @@ RUN docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg \
 	&& docker-php-ext-install pdo_mysql \
 	&& docker-php-ext-install bcmath \
 	&& docker-php-ext-install zip \
-	&& docker-php-ext-install pdo
+	&& docker-php-ext-install pdo\
+    && docker-php-ext-install pdo_pgsql
 
 RUN docker-php-ext-install sysvsem
 RUN pecl install amqp && docker-php-ext-enable amqp

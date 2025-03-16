@@ -14,7 +14,7 @@ services:
   php:
     container_name: bluegrid_php
     build: ./docker/php
-    restart: always
+    restart: on-failure
     volumes:
       - ./:/app/
       - ./docker/php/conf.d/custom.ini:/usr/local/etc/php/conf.d/custom.ini
@@ -30,4 +30,4 @@ services:
       - POSTGRES_PASSWORD=bluegrid
       - POSTGRES_DB=bluegrid
     ports:
-      - "5432:5432"
+      - "5433:5432"

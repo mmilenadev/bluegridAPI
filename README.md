@@ -46,6 +46,12 @@ Install dependencies using [Composer][9] by executing following command inside p
 
     composer install
 
+### Create database schema
+
+Create database schema and populate it by executing following commands in php container:
+
+    bin/console do:mi:mi
+
 ### Update hosts
 
 Update your local hosts (/etc/hosts on unix systems) file with following configuration:
