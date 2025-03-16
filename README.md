@@ -52,6 +52,12 @@ Create database schema and populate it by executing following commands in php co
 
     bin/console do:mi:mi
 
+### Start messenger 
+
+Collect and process messages asynchronously:
+
+    bin/console messenger:consume async -vv
+
 ### Update hosts
 
 Update your local hosts (/etc/hosts on unix systems) file with following configuration:

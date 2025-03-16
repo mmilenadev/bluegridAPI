@@ -4,6 +4,8 @@ namespace App\Entity\Directory;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
+use App\Controller\GetDirectoriesAction;
+use App\Controller\GetFilesAndDirectoriesAction;
 use App\Entity\File\File;
 use App\Entity\Traits\TimestampableEntity;
 use App\Repository\Directory\DirectoryRepository;
@@ -16,10 +18,10 @@ use Doctrine\ORM\Mapping as ORM;
     operations: [
         new GetCollection(
             uriTemplate: '/files-and-directories',
-            //controller: GetFilesAndDirectoriesAction::class,
+            controller: GetFilesAndDirectoriesAction::class,
             security: "is_granted('PUBLIC_ACCESS')"),
         new GetCollection(
-           // controller: GetDirectoriesAction::class,
+            controller: GetDirectoriesAction::class,
             security: "is_granted('PUBLIC_ACCESS')",
         ),
     ],

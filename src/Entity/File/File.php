@@ -4,6 +4,7 @@ namespace App\Entity\File;
 
 use ApiPlatform\Metadata\ApiResource;
 use ApiPlatform\Metadata\GetCollection;
+use App\Controller\GetFilesAction;
 use App\Entity\Directory\Directory;
 use App\Entity\Traits\TimestampableEntity;
 use App\Repository\File\FileRepository;
@@ -13,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ApiResource(
     operations: [
         new GetCollection(
-           // controller: GetFilesAction::class,
+            controller: GetFilesAction::class,
             security: "is_granted('PUBLIC_ACCESS')",
         ),
     ],
